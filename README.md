@@ -1,10 +1,31 @@
-# VMoBA: Mixture-of-Block Attention for Video Diffusion Models
+<br />
+<p align="center">
+  <h1 align="center">VMoBA: Mixture-of-Block Attention for <br> Video Diffusion Models</h1>
+  <p align="center">
+    <br />
+    <a href="https://jianzongwu.github.io/"><strong>Jianzong Wu</strong></a>
+    ·
+    <a href="https://liang-hou.github.io/"><strong>Liang Hou</strong></a>
+    ·
+    <a href="https://yanght321.github.io/"><strong>Haotian Yang</strong></a>
+    ·
+    <a href="https://www.xtao.website/"><strong>Xin Tao</strong></a>
+    .
+    <a href="https://tyfeld.github.io/"><strong>Ye Tian</strong></a>
+    .
+    <a href="https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en"><strong>Pengfei Wan</strong></a>
+    ·
+    <a href="https://ieeexplore.ieee.org/author/922173984202299"><strong>Di Zhang</strong></a>
+    ·
+    <a href="https://scholar.google.com/citations?user=T4gqdPkAAAAJ"><strong>Yunhai Tong</strong></a>
+  </p>
 
-<div align="center">
-
-[![arXiv](https://img.shields.io/badge/arXiv-2410.08261-b31b1b.svg)](TODO)
-
-</div>
+  <p align="center">
+    <a href='TODO'>
+      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'>
+    </a>
+  </p>
+<br />
 
 ![teaser](assets/images/teaser.png)
 
@@ -13,7 +34,7 @@
 We introduce **VMoBA**, Mixture of Block Attention for Video Diffusion Models!
 
 - 🌟 Sparse attention mechanism based on MoBA, designed for video diffusion model **training**.
-- 🖼️ Key innovations: Layer-wise Recurrent Block Partition, Global Block Selection, and Threshold-based Block Selection. These innovations make VMoBA performance better and quicker in video generation.
+- 🖼️ Key innovations: Layer-wise Recurrent Block Partition, Global Block Selection, and Threshold-based Block Selection. These innovations enhance VMoBA's performance and speed in video generation.
 - ✨ 2.92x FLOPs acceleration. 1.48x latency acceleration on 576p video (93x576x1024, 55K tokens). Faster with longer sequence length!
 
 ![](assets/images/architecture.png)
@@ -25,7 +46,7 @@ We introduce **VMoBA**, Mixture of Block Attention for Video Diffusion Models!
 
 ## 🛠️ Quick Start
 
-We provide a **clean single-file code** with only VMoBA implmented by FlashAttention and its speed test unit. Feel free to replace Full Attention with VMoBA in any of your models!
+We provide a **clean single-file code** with only VMoBA implemented by FlashAttention along with its speed test unit. Feel free to replace Full Attention with VMoBA in any of your models!
 
 ### Environment Preparation
 
@@ -53,7 +74,7 @@ For issues installing FlashAttention, please refer to the [official repo](https:
 
 ### VMoBA Speed Test
 
-VMoBA is be implemented in single file, `src/vmoba.py`
+VMoBA is implemented in a single file, `src/vmoba.py`
 
 Run this command to test the speed compared with Full Attention.
 
@@ -62,22 +83,25 @@ CUDA_VISIBLE_DEVICES=1 \
 python -u src/vmoba.py
 ```
 
-Feel free to try different sequence length and component variables (topk selection, local selection as in the vanilla MoBA).
+Feel free to try different sequence lengths and component variables (topk selection, local selection as in the vanilla MoBA).
 
-Note: The current implementation based on FlashAttention shows clear acceleration than Full Attention when the sequence length being larger than roughly 33K Tokens. This is also suggested by [one of MoBA's issue](https://github.com/MoonshotAI/MoBA/issues/9).
+Note: The current implementation, based on FlashAttention, exhibits apparent acceleration compared to Full Attention when the sequence length exceeds approximately 33,000 tokens. This is also suggested by [one of MoBA's issues](https://github.com/MoonshotAI/MoBA/issues/9).
 
-Note2: The 1-2-3D block partition algorithm is implmented in `process_moba_input` and `process_moba_output` functions in the same file. Please use it according to your data format. 
+Note 2: The 1-2-3D block partition algorithm is implemented in the `process_moba_input` and `process_moba_output` functions in the same file. Please use it according to your data format. 
 
 
-### Theoretic FLOPs computation
+### Theoretical FLOPs computation
 
-In case that most third-party packages to compute FLOPs of attention-based networks usually miss some operators, (Lack of implementation for certain operators.), we implement a hand-draft theoretic FLOPs computation script to compute the theoretic FLOPs of VMoBA and Full Attention networks. The code is at `src/cal_theo_flops.py`.
+In case that most third-party packages to compute FLOPs of attention-based networks usually miss some operators (Lack of implementation for certain operators), we implement a hand-drafted theoretical FLOPs computation script to calculate the theoretical FLOPs of VMoBA and Full Attention networks. The code is at `src/cal_theo_flops.py`.
 
 ``` python
 python scripts/flops/cal_theo_flops.py
 ```
 
 
+## Contact
+
+Jianzong Wu (吴健宗): jzwu@stu.pku.edu.cn
 
 
 ## Citation
