@@ -42,7 +42,7 @@ We introduce **VMoBA**, Mixture of Block Attention for Video Diffusion Models!
 
 ## 🎉 News
 
-- [2025-6-27] The code of VMoBA is released!
+- [2025-6-27] Paper and code of VMoBA is released!
 
 ## 🛠️ Quick Start
 
