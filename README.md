@@ -46,7 +46,7 @@ We introduce **VMoBA**, Mixture of Block Attention for Video Diffusion Models!
 
 ## 🛠️ Quick Start
 
-We provide a **clean single-file code** with only VMoBA implemented by FlashAttention along with its speed test unit. Feel free to replace Full Attention with VMoBA in any of your models!
+We provide a **clean single-file code** with only VMoBA implemented by FlashAttention, along with its speed test unit. Feel free to replace Full Attention with VMoBA in any of your models!
 
 ### Environment Preparation
 
